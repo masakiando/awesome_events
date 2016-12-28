@@ -1,28 +1,56 @@
-== README
+# awesome events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+これは、[パーフェクトRuby on Rails](http://gihyo.jp/book/2014/978-4-7741-6516-5)のPart3で作成されたサンプルアプリです。
 
-Things you may want to cover:
+イベント情報を登録／編集したり、イベントに参加登録したりできます。
 
-* Ruby version
+## 前提条件
 
-* System dependencies
+次のライブラリをインストールしておいてください。詳しくは書籍を参考にしてください。
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby 2.0.0 以上
+* bundler
+* sqlite3
+* phantomjs
+* nodejs
+* ImageMagick
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## セットアップ方法
+
+まず次のコマンドを実行します。
+
+```
+git clone git@github.com:willnet/awesome_events.git
+cd awesome_events
+./bin/bundle install
+./bin/rake db:migrate
+```
+
+[Twitter Application Management](https://apps.twitter.com/) で、書籍の通りにTwitterアプリケーションを作成し、作成したアプリケーションの Twitter Api Key と Twitter Api Secret を `config/secrets.yml` に記述します。その後、次のコマンドで WEBrick を起動します。
+
+```
+./bin/rails s
+```
+
+http://localhost:3000/ にアクセスすると、トップページが表示されているはずです。
+
+8章に記述されている Vagrant にソースコードをデプロイする場合は、書籍の通りに Vagrant 環境を設定し、次のコマンドでデプロイします。
+
+```
+./bin/bundle exec cap staging deploy
+```
+
+### テストの実行方法
+
+テストを実行する場合は、次のようにします。
+
+```
+./bin/bundle rake spec
+```
+
+特定のテストを実行したい場合は次のようにします。例として event_spec.rb を実行するものとします。
+
+```
+./bin/bundle exec rspec spec/models/event_spec.rb
+```
