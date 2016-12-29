@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+    attributes:
+      event:
+        name: 氏名
+        place: 場所
+        start_time: 開始日時
+        end_time: 終了日時
+        content: 内容
+    errors:
+      messages:
+        end_time_too_old: は開始日時より新しい日時にしてください。
