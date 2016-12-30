@@ -1,6 +1,12 @@
 class EventsController < ApplicationController
-  before_action :authenticate
+  before_action :authenticate, except: [:show]
 
+  # event詳細
+  def show
+    @event = Event.find(params[:id])
+  end
+
+  # 新規登録フォーム
   def new
     @event = current_user.created_events.build
   end
