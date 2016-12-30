@@ -34,6 +34,7 @@ group :development, :test do
   gem 'byebug'
   # ER
   gem 'rails-erd'
+  gem 'haml-rails'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
