@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   # 詳細 show
   def show
     @event = Event.find(params[:id])
+    @tickets = @event.tickets.includes(:user).order(:created_at)
   end
 
   # 新規フォーム new
